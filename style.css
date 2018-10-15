@@ -1,0 +1,23 @@
+.tip {
+	display: inline-block;
+	position: absolute;
+	padding: 15px 25px;
+	background-color: #555;
+	color: goldenrod;
+	border-radius: 5px;
+	border: 1px solid #DDD;
+}
+.tip:after,
+.tip:before {
+	content: '';
+	position: absolute;
+	left: -14px;
+	top: 2px;
+	border: 8px solid transparent;
+	border-right: 8px solid #555;
+}
+.tip:after {
+	border-right: 8px solid #555;
+	top: 2px;
+	left: -14px;
+}
