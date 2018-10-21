@@ -82,6 +82,7 @@ $(function(){
         if (e.button != 0)
             return 
         var template = `<div class='sharkarstain'><img class='inbox_image' src="${ this.src }"></div>`;
+
         $('body').append(template);
         var $div = $('.sharkarstain')
         var $image = $('.inbox_image')
