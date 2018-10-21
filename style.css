@@ -85,3 +85,12 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+
+.floating_text {
+	color: #e30;
+	box-shadow: 1px;
+	position: absolute;
+	font-size: 14px;
+	font-family: 'noto 雅黑';
+	transform: translate(-50%, 0%)
+}
