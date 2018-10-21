@@ -1,4 +1,4 @@
-.tip {
+.tip, .context-menu {
 	display: inline-block;
 	position: absolute;
 	padding: 15px 25px;
@@ -6,7 +6,32 @@
 	color: goldenrod;
 	border-radius: 5px;
 	border: 1px solid #DDD;
+
 }
+
+.context-menu {
+	border-top: 4px solid #e90;
+	display: none;
+	float: left;
+	overflow: hidden;
+	color: #fff;
+}
+
+.context-menu ul {
+	list-style-type: none;
+}
+
+.context-menu .index-menu-list {
+	padding: 0px 25px;
+}
+
+.context-menu a,.context-menu a:link,.context-menu a:after {
+	color: goldenrod;
+}
+.context-menu a:hover {
+	color: #fff;
+}
+
 .tip:after,
 .tip:before {
 	content: '';
@@ -15,9 +40,48 @@
 	top: 2px;
 	border: 8px solid transparent;
 	border-right: 8px solid #555;
+	transition: all 1s;
+	-webkit-transition: all 1s;
 }
+
 .tip:after {
 	border-right: 8px solid #555;
 	top: 2px;
 	left: -14px;
+}
+
+.imgtip {
+	padding: 0px;
+	margin: 0px;
+}
+.imgtip:after,
+.imgtip:before {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	content: ;
+}
+
+.sharkarstain {
+	display : none;
+	position : fixed;
+	cursor: normal;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.inbox_image {
+	cursor: zoom-out;
+    display : block;
+    margin : auto;
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
