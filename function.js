@@ -1,5 +1,11 @@
 $(function () {
+    // 提高检测效率用的小工具
     var log = console.log.bind(console);
+
+    /**
+     * 额外的超链接提示
+     * @type {jQuery|HTMLElement}
+     */
     var $a = $('.post-content a');
     $a.mouseover(function (e) {
         // 初始化数据，然后显示额外的提示
@@ -29,6 +35,10 @@ $(function () {
         })
     })
 
+    /**
+     * 额外的图片提示
+     * @type {jQuery|HTMLElement}
+     */
     var $img = $('.post-content img');
     $img.mouseover(function (e) {
         // 初始化数据，显示出图片型的额外提示，会有过渡效果
@@ -38,7 +48,7 @@ $(function () {
         this.alt = '';
         this.title = '';
         $(this).css('cursor', 'zoom-in');
-        let template = `<div class='tip imgtip'><img id='tipimg' src="${this.src}" witdh='100%' height='100%'></div>`;
+        let template = `<div class='tip imgtip'><img id='tipimg' src="${this.src}" width='100%' height='100%'></div>`;
         $('body').append(template);
         this.tip = $('.tip');
         this.tip.css('display', 'none');
@@ -50,7 +60,7 @@ $(function () {
         // 鼠标移动时，图片型额外提示跟着鼠标走
         if (!this.__mousedown)
             return;
-        var gap = 35
+        var gap = 35;
         var isHorizon = this.naturalWidth > window.innerWidth / 3;
         let offsetX = isHorizon ? -this.naturalWidth / 2 : gap;
         let offsetY = isHorizon ? gap : -this.naturalHeight / 2;
@@ -70,25 +80,58 @@ $(function () {
         })
     })
 
+    /**
+     * sharkarstain manual
+     * 生成展示模式的说明书的html代码
+     * @returns {string}
+     */
+    function manual() {
+        /**
+         *         TODO: 对这个展示模式做简介
+         *         还没完成
+         *         他不变，所以他每次都是从被隐藏的现存代码中显示出来而已
+         */
+        var ret = '';
+        var manual = `<div class='sharkarstain-manual'><h1>展示模式-使用说明</h1></div>`;
+        var manual_items = {
+            'scroll' : {
+                tl: '鼠标滚轮向上/向下',
+                cm: '图片放大/缩小',
+            },
+            'img_mousedown' : {
+                tl: '鼠标拖动图片',
+                cm: '拖拽图片',
+            },
+            'div_mousedown' : {
+                tl: '鼠标点击透明背景',
+                cm: '退出展示模式',
+            },
+        };
+        var keys = manual_items.keys();
+        for (var k of keys) {
+            var o = manual_items[k];
+            ret.append(`<b>${o.title}</b> ${o.comment}</br>`);
+        }
+        return ret;
+    }
 
-    // sharkarstain
-    // 功能：
-    // 1. 点击透明黑色区域才关闭
-    // 2. 滚轮向上放大图片
-    // 3. 滚轮向下缩小图片
-    // 4. 按住图片拖动图片大小
-    // 5. 导航图
+    /**
+     *      sharkarstain 图片展示模式
+     *      功能：
+     *      1. 点击透明黑色区域才关闭
+     *      2. 滚轮向上放大图片
+     *      3. 滚轮向下缩小图片
+     *      4. 按住图片拖动图片大小
+     *      5. 导航图
+     */
     $img.mousedown(function (e) {
         // 鼠标点中了图片，进入图片展示模式
         e.stopPropagation();
         e.preventDefault();
         if (e.button != 0)
             return;
-
-        
-
         var template = `<div class='sharkarstain'><img class='inbox_image' src="${ this.src }"></div>`;
-        $('body').append(template);
+        $('body').append(template).append(manual());
         var $div = $('.sharkarstain');
         var $image = $('.inbox_image');
         // 具有过渡效果的显示和消失，只有在鼠标右键整个画布，鼠标左键了背景才起作用
