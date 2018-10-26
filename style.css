@@ -59,13 +59,13 @@
 	padding: 0px;
 	margin: 0px;
 	border: 0px;
-	content: ;
+	content: none;
 }
 
 .sharkarstain {
 	display : none;
 	position : fixed;
-	cursor: normal;
+	cursor: zoom-out;
 	top: 0;
 	margin: 0;
 	padding: 0;
@@ -77,35 +77,46 @@
 	background-color: rgba(0,0,0,0.5);
 }
 
-.sharkarstain-manual {
+.sharkarstain_manual {
 	position : fixed;
 	display: none;
+	cursor: pointer;
 	top: 0;
 	left: 0;
 	margin: 15px;
 	padding: 15px;
+	font-size: 12px;
 	background-color: rgba(0,0,0,0.9);
 	color: #ddd;
+	z-index: 2;
+	opacity: 0.8;
+}
+.sharkarstain_manual span {
+	color: #999;
 	z-index: 2;
 }
 
 .inbox_image {
-	cursor: zoom-out;
+	cursor: grab;
     display : block;
     margin : auto;
     position: absolute;
 	top: 50%;
 	left: 50%;
-	z-index: 3;
+	z-index: 999;
 	transform: translate(-50%, -50%);
 }
 
+.grapping {
+	cursor: -webkit-grabbing;
+	cursor: grabbing;
+}
 
 .floating_text {
 	color: #e30;
 	box-shadow: 1px;
 	position: absolute;
 	font-size: 14px;
-	font-family: 'noto 雅黑';
+	font-family: 'noto MicrosoftYahei';
 	transform: translate(-50%, 0%)
 }
