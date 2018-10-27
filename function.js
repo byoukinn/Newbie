@@ -322,8 +322,8 @@ $(function () {
         var template = `<div class="context-menu"><b>目录</b>${ html }</div>`;
         $('body').append(template);
         var $ctxmenu = $('.context-menu');
-        document.oncontextmenu = function (event) {
-            event.preventDefault();
+        document.oncontextmenu = function (e) {
+            e.preventDefault();
         };
         // 加入了浮动文字
         var floatingText = FloatingText.getInstance();
