@@ -24,6 +24,9 @@ provide more mouse event, like follow:
 
 show the original size of the `<img>` tag, and make user  feel better. 
 
+floating and fade away red text.
+
+
 ## usage
 step 1. put this folder to `path/to/typecho-base/usr/plugin` folder.  
 
